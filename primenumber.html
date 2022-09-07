@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+        *,
+        *::before,
+        *::after{
+        box-sizing: border-box;
+        }
+
+        *{
+        margin: 0;
+        padding: 0;
+        }
+
+
+
+        body{
+        font-family: 'Source Code Pro', monospace;
+        background-color: #fff;
+        background-image:
+        linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+        linear-gradient(#eee .1em, transparent .1em);
+        background-size: 100% 1.2em;
+        line-height: 1.8;
+        padding: 1.25rem;
+        }
+
+        
+
+        .checkerContainer{
+        margin: 0 auto ;
+        max-width: 400px;
+        padding: 1px 20px 20px;
+        border-radius: 19px;
+        border: 3px solid black;
+        background-color: #eee;
+        box-shadow: 9px 9px  #c4c4c4, -9px -9px  #c4c4c4;
+
+        }
+
+        h2{
+        text-align: center;
+        font-size: 22px;
+        text-decoration-line: underline;
+        }
+
+        .inputSection{
+        white-space: pre-line;
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+        }
+
+        input[type=text]{
+        width: 80%;
+        padding: 5px;
+        margin: 8px 0px;
+        outline-color: red;
+        border-radius: 5px;
+        outline-offset: 4px;
+        border: 3px solid black;
+        text-align: center;
+        font-size: 1.2rem;
+        }
+
+        .btnBox{
+        margin-top: 1.8em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 3rem;
+        }
+
+        button {
+        color: #090909;
+        padding: 0.7em 1.7em;
+        font-size: 18px;
+        border-radius: 0.5em;
+        background: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        transition: all .3s;
+        box-shadow: 3px 3px 1px #c5c5c5, -3px -3px  #ffffff;
+        }
+
+        button:active {
+        box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+        transition: all .3s;
+        }
+
+        .clearBtn:active{
+        color:red;
+        }
+
+        .checkBtn:active{
+        color:green;
+        }
+
+        span{
+        font-style: italic;
+        }
+        
+
+  
+
+
+    </style>
+</head>
+<body>
+    <div class="checkerContainer">
+        <h2>PRIME NUMBER CHECKER</h2>
+        <div class="inputSection">
+            This Number:
+           <input type="text" id="numberBox"   min="1" placeholder="Enter any positive number" >
+           Prime <span>or</span> Composite?
+        </div>
+        
+        <div class="btnBox">
+            <button id="clearBtn">Clear</button>
+            <button id="checkBtn">Check</button>
+        </div>
+
+        <div class="answerBox">
+
+
+        </div>
+        
+    </div>
+
+
+    <script>
+
+        /***************************************************
+        |========== VARIABLE DECLARATION====================|
+        ****************************************************/
+
+        let number = document.querySelector('#numberBox').value;
+
+        let answerBox = document.getElementsByClassName('answerBox')[0];
+
+        // let nearestInteger = Math.ceil(Math.sqrt(numberBox));
+
+        let checkerContainer = document.getElementsByClassName('checkerContainer')[0];
+
+        
+    
+       
+        let factors = [];
+
+
+        /***************************************************************
+        |==========ATTACHING CLICK EVENT TO THE TWO BUTTONS===========|
+        ****************************************************************/
+
+        // document.querySelector(".clearBtn").addEventListener("click", clearButton);
+
+        document.querySelector("#checkBtn").addEventListener("click", checkButton);
+
+
+        /***************************************************************
+        |==========DEFINING FUNCTIONS FOR THE TWO BUTTONS==============|
+        ****************************************************************/
+
+        function checkButton() {
+
+            checkerContainer.style.backgroundColor ="red";
+
+            let isPrime = true;
+           
+            if (number == 1) {
+
+                // document.write(`<h1>1 is neither a prime nor a  composite number</h1>`);
+              answerBox.innerHTML = `<p>${number} is neither a prime nor a composite number</p>`
+
+            }
+
+            else if ( number > 1) {
+
+                for (let i = 2; i<=number/2; i++ ) {
+                    
+                    if ( number % i == 0 ) {
+                        isPrime = false;
+                        break;
+                    }
+
+                }
+                
+
+                if (isPrime == true) {
+                    
+                    // document.write(`<h1>${number} is  a prime number</h1>`);
+                    answerBox.innerHTML = `<p>${number} is a prime number</p>`
+                
+                }
+
+                else {
+
+                    for (let i = 1; i<=number/2; i++) {
+
+                        if (number % i == 0){
+
+                            factors.push(i);
+                        }
+                    }
+
+                    let editedFactors = factors.join(", ");
+
+                    
+                    // document.write(factors)
+                    // document.write(`<h1>${number} is  a composite number and its factors are ${editedFactors} and ${number} </h1>`);
+                    answerBox.innerHTML = `<p>${number} is  a composite number and its factors are <strong>${editedFactors} and ${number}</strong> </p>`
+                }
+            }
+
+      
+
+        }
+
+        
+
+
+        
+    </script>
+</body>
+</html>
