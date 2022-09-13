@@ -1,0 +1,121 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+*,
+*::before,
+*::after{
+box-sizing: border-box;
+}
+
+*{
+margin: 0;
+padding: 0;
+}
+
+html,body{
+height: 100%;
+}
+
+
+
+body{
+font-family: 'Source Code Pro', monospace;
+background-color: #fff;
+background-image:
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+line-height: 1.8;
+padding: 1.8rem 1.25rem 0;
+}
+
+
+
+.checkerContainer{
+margin: 0 auto 20px ;
+max-width: 400px;
+padding: 1px 20px 20px;
+border-radius: 19px;
+border: 3px solid black;
+background-color: #eee;
+box-shadow: 9px 9px  #c4c4c4, -9px -9px  #c4c4c4;
+
+}
+
+h2{
+text-align: center;
+font-size: 22px;
+text-decoration-line: underline;
+}
+
+.inputSection{
+white-space: pre-line;
+text-align: center;
+font-weight: 600;
+font-size: 18px;
+}
+
+input[type=text]{
+width: 90%;
+padding: 5px;
+margin: 8px 0px;
+outline-color: red;
+border-radius: 5px;
+outline-offset: 4px;
+border: 3px solid black;
+text-align: center;
+font-size: 1.2rem;
+}
+
+.btnBox{
+margin-top: 1.8em;
+display: flex;
+justify-content: center;
+align-items: center;
+column-gap: 3rem;
+}
+
+button {
+color: #090909;
+padding: 0.7em 1.2em;
+font-size: 18px;
+border-radius: 0.5em;
+background: #e8e8e8;
+border: 1px solid #e8e8e8;
+transition: all .3s;
+box-shadow: 3px 3px 1px #c5c5c5, -3px -3px  #ffffff;
+
+}
+
+button:active {
+box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+transition: all .3s;
+}
+
+#clearBtn:active{
+color:red;
+}
+
+#checkBtn:active{
+color:green;
+}
+
+span{
+font-style: italic;
+}
+
+.answerBox{
+margin-top: 20px;
+}
+
+footer{
+position: sticky;
+top: 100vh;
+margin-top:50px;
+text-align: center;
+background-color: slategray;
+padding: 10px 0;
+font-size: 22px;
+}
+
